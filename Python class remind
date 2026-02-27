@@ -1,0 +1,77 @@
+class Car:
+    def __init__(self,make,model,year): # 생성자 호출하는 인스턴스 메소드
+        self.make=make
+        self.model=model
+        self.year=year
+        self.speed=0 #car 객체의 속성 speed를 초기화함.
+
+#인스턴스 메소드는 첫번째 인자로 항상 self가 있어야한다.
+    def name(self):
+        names=str(self.year) + " " + self.make + ' ' + self.model
+        return names
+    
+    def speed1(self):
+        print(str(self.speed) + "이다")
+#객체명=클래스명(init함수의 매개변수)
+c1=Car('tesla','model-y',2018) # 객체 생성코드  -> 자동으로 __init__ 호출
+print(c1.name())
+print(c1.speed1())
+
+c2=Car('sonata','model-nf',2016) # 객체 생성코드  -> 자동으로 __init__ 호출
+print(c2.name())
+print(c2.speed1())
+
+#object 클래스 상속받음
+class Fruit :
+    price=20000 # 클래스 변수 
+    def __init__(self,title,color):
+        self.title=title
+        self.color=color
+
+    def info(self):
+        return "{}과일은 {}색".format(self.title,self.color)
+    
+    def buy(self,buy1):
+        return "{}과일 {}에서 사야지".format(self.title,buy1)
+    
+#인스턴스 생성 2개
+f=Fruit('banana','yellow')
+f2=Fruit('apple','red')
+
+print(f.info())
+print(f.buy('lotte'))
+
+print(f2.info())
+print(f2.buy('hyundai'))
+
+class A:
+    def add(a,b): #클래스 메소드(정적메소드) 로 보고 코드를 구현하겠다.(self 지정 안함)
+        print(a+b)
+    
+    def minus(a,b):
+        print(a-b)
+
+# a=A()
+# a.add(3,4) # self가 없어서 error
+
+A.add(3,4)
+A.minus(5,2)
+
+class Container :
+    stock_num=0 # 클래스 변수 (모든 객체 공유 가능) -> 클래스명.변수
+
+    def __init__(self,name): #메소드
+        self.n=name #인스턴스 변수(각 객체마다 별도로 저장)->객체.변수 객체=self=Container
+        Container.stock_num+=1
+        #self.Container.stock_num+=1
+
+c=Container("lee")
+c2=Container("kim")
+
+print(Container.stock_num) # 2 출력됨 -> =+1로 객체가 생성될때마다 저장되기때문임
+
+
+print(c.n) #인스턴스 변수 -> Container 로 접근할수 없고 self로 접근
+print(c2.n)
+print(c.__dict__) # 특수 메소드
+print(c2.__dict__)
