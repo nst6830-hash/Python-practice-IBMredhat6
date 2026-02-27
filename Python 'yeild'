@@ -1,0 +1,16 @@
+def num1(stop):
+    n=0
+    while n<stop :
+        yield n
+        n+=1
+
+for i in num1(3):
+    print(i)
+
+def gen(x):
+    for i in x :
+        yield i.upper()
+
+x=['apple','pineapple','banana']
+for i in gen(x):
+    print(i)
