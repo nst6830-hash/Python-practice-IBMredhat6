@@ -8,3 +8,12 @@ def loading():
         print('파일 없음')
 
 print(loading())
+
+def add(data):
+        with open('stu.json','w',encoding='utf-8') as f:
+            json.dump(data,f)
+
+print(loading())
+add([{"name":"tom","score":100},
+ {"name":"tom","score":100}])
+print(loading())
