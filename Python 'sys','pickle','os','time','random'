@@ -1,0 +1,63 @@
+#sys, pickle, os, time, random
+
+#sys : 실행 관련 제어
+import sys
+print(sys.argv[0])
+
+print("start")
+#sys.exit() # 즉시 종료시키기
+print("end") # 출력되지 않음
+
+#파이썬 패키지 위치
+print(sys.path)
+
+#p.273
+# ** pickle : 객체 파일 쓰기 **
+import pickle
+f=open ('test.obj','wb') #W형 바이너리 모드로 열기
+obj={1:'pyothn',2:'study',3:'basic'}
+pickle.dump(obj,f) # 객체를 파일에 저장(직렬화) # obj 파일을 f에 저장한다
+f.close()
+
+# with open('test.obj','wb') as f:
+#     pickle.dump(obj,f)
+with open('test.obj','rb') as f:
+    data=pickle.load(f)
+print(data) #{1: 'pyothn', 2: 'study', 3: 'basic'}
+
+#time : 시간 관련 처리
+import time
+print(time.time())
+
+print(time.localtime(time.time()))
+
+# 현재 시간 리턴
+print(time.ctime()) 
+
+#포맷코드 (형식 표현)
+print(time.strftime('%Y-%m-%d %H:%m:%S',time.localtime(time.time())))
+
+# #시간 간격 발생
+# for i in range(5):
+#     print(i)
+#     time.sleep(1) # 1초 간격으로 0~4 출력 setInterval
+
+# random : 난수 리턴 (0.0~1.0 의 실수)
+import random
+print(random.random())
+
+print(random.randint(1,45)) # 1~45 포함 정수
+
+# 섞기
+d=[1,2,3,4]
+random.shuffle(d)
+print(d)
+
+#무작위 선택
+c=random.choice(d)
+print(c)
+
+#p.286 웹 열기
+import webbrowser
+webbrowser.open("http://naver.com")
+webbrowser.open_new("http://naver.com")
