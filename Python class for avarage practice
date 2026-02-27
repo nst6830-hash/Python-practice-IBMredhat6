@@ -1,0 +1,48 @@
+class Student :
+    def __init__(self,id,name,score=0):
+        self.i=id
+        self.n=name
+        self.s=score
+
+    def getId(self):
+        return self.i
+    
+    def getName(self):
+        return self.n
+    
+    def setScore(self,score):
+        self.s=score
+    
+    def getScore(self):
+        return self.s
+    
+class Cal:
+    def __init__(self):
+        self.stu=[]
+
+    def add(self,student):
+        self.stu.append(student) # self.stu에 studnet 추가
+
+    def avg(self):
+        sum=0
+        for i in self.stu:
+            sum+=i.getScore()
+        average=sum/len(self.stu)
+        return average,len(self.stu)
+
+
+a=Student(1,'민구')
+a.setScore(100)
+a2=Student(2,'정구')
+a2.setScore(90)
+a3=Student(3,'덕구',score=80)
+a4=Student(4,'상구',score=40)
+
+
+c=Cal() # 빈 리스트 생성 self.stu=[]
+c.add(a) # 빈 리스트에 a를 추가 self.stu=[id,name,score]
+c.add(a2)
+c.add(a3)
+c.add(a4)
+
+print('평균:{}'.format(c.avg()))
