@@ -1,0 +1,105 @@
+# # a:b:c:d 문자열을 a#b#c#d 로 split join 이용해 바꾸기
+# a= 'a:b:c:d'
+# res = a.split(':')
+# res2 = '#'.join(res)
+# print(res2)
+
+# #2. 딕셔너리 값 추출하기 
+# a = {'A':90,'B':80}
+# a['C']= a.get('C',70)
+# print(a['C'])
+# #a['C'] #오류 대신 70 출력 
+# print(a)
+
+# #3. 리스트 더하기와 extend 함수
+# a = [1,2,3] # [4,5] 를 더할 때 + 사용한것과 extend 차이 설명
+# # extend 는 원본 변경 + 는 리스트 생성
+
+# #4. 리스트 총 합 구하기
+# a = [20,55,67,82,45,33,90,87,100,25]
+# print(sum(a))
+
+# def tot(list1):
+#     sum = 0
+#     for i in list1:
+#         sum+= i
+#     return sum
+# print(tot([20,55,67,82,45,33,90,87,100,25]))
+
+# #5. 피보나치 함수
+
+# def mul(n):
+#    if n == 0:
+#        return 0
+#    if n == 1:
+#        return 1
+#    return mul(n-1) + mul(n-2)
+# print(mul(6))
+
+# #6.사용자에게 숫자를 입력받아 숫자의 총합을 구하는 프로그램 (숫자,로 구분해서 입력)
+# u_input = input("숫자입력ㄱㄱ")
+# num = u_input.split(",")
+# tot = 0
+# for i in num:
+#     tot+=int(i)
+# print(tot)
+    
+#7.한줄 구구단 입력 받은 2~9 중 숫자 하나 입력받아 맞는 구구단 출력
+# u_input = input("구구단을 출력할 숫자를 입력하세요(2~9)")
+# num = int(u_input)
+# for i in range(1,10):
+#     print(i * num,end=' ')
+
+#8.파일을 읽어 역순으로 저장 
+with open('abc.txt','r') as f:
+    linse = f.readlines
+
+linse.reverse()
+print(linse)
+
+#9.평균값 구하기
+# def avg() :
+#     tot = 0
+#     cnt = 0
+#     with open ('sample.txt','r') as f:
+#    # f = open ('sample.txt','r')
+#         for i in f:
+#             score = int(i.strip())
+#             tot += score
+#             cnt += 1
+
+#     return tot/cnt
+    
+# res = (avg())
+# with open ('result.txt','w') as f:
+# #  f= open('result.txt','w')
+#     f.write (str(res))
+def avg():
+    tot = 0
+    cnt = 0
+
+    with open('sample.txt', 'r') as f:
+        while True:
+            line = f.readline()
+            if not line:
+                break
+            score = int(line.strip())
+            tot += score
+            cnt += 1
+
+    return tot / cnt
+
+res = avg()
+
+with open('result.txt', 'w') as f:
+    f.write(str(res))
+
+#10.계산기 만들기
+class Calculator:
+    def __init__(self,numlist):
+        self.numlist=numlist
+    
+    def sum(self):
+        res=0
+        for i in num:
+            
