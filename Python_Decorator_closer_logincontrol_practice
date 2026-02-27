@@ -1,0 +1,20 @@
+#closer, decorator
+login_state=False #일종의 전역 변수
+
+def login(func):#func = write_post
+    def wrapper(*args,**kwargs):
+        if not login_state:
+            print('로그인')
+            return # 실행 중단
+        return func(*args,**kwargs)
+    return wrapper
+
+@login # 데코레이터 함수 @
+def write_post():
+    print("글 작성 완료")
+
+write_post()
+login_state=True # return func (*args,**kwargs)
+write_post() # '글 작성 완료' 출력
+
+# write_post 함수에 @login 데코레이터를 적용시킴 -> wrapper 함수 실행
