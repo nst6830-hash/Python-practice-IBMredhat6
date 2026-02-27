@@ -1,0 +1,71 @@
+test1
+
+-----------------------------------
+module1.py
+
+def mod1_test1():
+    print("mod2=>test1")
+def mod1_test2():
+    print("mod2=>test2")
+-----------------------------------
+__init__.py
+
+__all__=['module1']
+
+-----------------------------------
+
+
+
+test2
+-----------------------------------
+module2.py
+
+def mod2_test1():
+    print("mod2=>test1")
+def mod2_test2():
+    print("mod2=>test2")
+-----------------------------------
+__init__.py
+
+__all__=['module2']
+-----------------------------------
+
+__all__ 디렉터리에서 * 를 사용해 import할 경우 이곳에 정의 된 모듈만 import
+
+
+---------------------------------------------------------------------------------------------------------
+# 파이썬은 패키지로 분할된 개별적인 모듈로 구성 
+# 상대경로 :.. <- 부모 디렉토리 . <-현재 디렉토리
+
+#1)import 패키지명.하위패키지.모듈명
+import pro_test.test1.module1
+import pro_test.test2.module2
+
+pro_test.test1.module1.mod1_test1()
+pro_test.test1.module1.mod1_test2()
+
+pro_test.test2.module2.mod2_test1()
+pro_test.test2.module2.mod2_test2()
+print("=======================================")
+
+#2)from 패키지명.하위패키지 import 모듈명
+from pro_test.test1 import module1
+from pro_test.test2 import module2 as m2 #Alias
+#from pro_test.test1.module1 import mod1_test1,mod1_test2
+module1.mod1_test1()
+module1.mod1_test2()
+
+m2.mod2_test1()
+m2.mod2_test2()
+print("=======================================")
+
+#3)from 패키지명 import * (모두 불러오기)
+
+from pro_test.test1 import *
+from pro_test.test2 import *
+
+module1.mod1_test1()
+module1.mod1_test2()
+
+module2.mod2_test1()
+module2.mod2_test2()
