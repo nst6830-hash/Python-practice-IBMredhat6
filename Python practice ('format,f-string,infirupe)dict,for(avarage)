@@ -1,0 +1,46 @@
+#1. 키를 실수로 입력받아 "너의 키는 ( ) cm이다" 라는 문자열을 출력
+#format함수와 f-string사용
+
+height = int(input('키 입력'))
+
+print(f'너의 키는{height}cm 이다')
+print('너의 키는 {}cm 이다'.format(height))
+
+#2. 빈 딕셔너리를 선언하고
+# 무한루프로 이름과 tv보는것을 좋아하는지 입력받는다
+# 입력 후, 이름과 tv보는것 좋아하는지에 대한 대답을
+# 딕셔너리에 추가한다.
+# 친구한테도 물어볼까?라는 질문에 no 를 받으면 무한루프를 종료시킨다.
+# 그 후 딕셔너리 데이터를 items함수를 사용해 다 출력한다.
+
+dic1={}
+while True:
+    ans = input('tv보는거 좋아해 ?')
+    dic1['tv'] = ans
+    ans2 = input('친구한테도 물어볼까?')
+    if ans2 == 'n' :
+        break
+    elif ans2 == 'y' :
+        ans = input('tv보는거 좋아해 ?')
+        dic1['tv2'] = ans
+        ans2 = input('친구한테도 물어볼까?')
+        if ans2 == 'n' :
+            break
+    else :
+        break
+
+print(dic1.items())
+
+# 3. avg- 평균구하는 함수 구현해라.
+# avg(1,2)
+# avg(1,2,3,4,5) 호출코드이다.
+
+def avg(*argv):
+    res = 0
+    for i in argv:
+        res +=i
+    a = res/len(argv)
+    print(a)
+
+print(avg(1,2))
+print(avg(1,2,3,4,5))
