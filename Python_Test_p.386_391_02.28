@@ -51,55 +51,63 @@
 #     print(i * num,end=' ')
 
 #8.파일을 읽어 역순으로 저장 
-with open('abc.txt','r') as f:
-    linse = f.readlines
+# with open('abc.txt','r') as f:
+#     linse = f.readlines
 
-linse.reverse()
-print(linse)
+# linse.reverse()
+# print(linse)
 
-#9.평균값 구하기
-# def avg() :
+# #9.평균값 구하기
+# # def avg() :
+# #     tot = 0
+# #     cnt = 0
+# #     with open ('sample.txt','r') as f:
+# #    # f = open ('sample.txt','r')
+# #         for i in f:
+# #             score = int(i.strip())
+# #             tot += score
+# #             cnt += 1
+
+# #     return tot/cnt
+    
+# # res = (avg())
+# # with open ('result.txt','w') as f:
+# # #  f= open('result.txt','w')
+# #     f.write (str(res))
+# def avg():
 #     tot = 0
 #     cnt = 0
-#     with open ('sample.txt','r') as f:
-#    # f = open ('sample.txt','r')
-#         for i in f:
-#             score = int(i.strip())
+
+#     with open('sample.txt', 'r') as f:
+#         while True:
+#             line = f.readline()
+#             if not line:
+#                 break
+#             score = int(line.strip())
 #             tot += score
 #             cnt += 1
 
-#     return tot/cnt
+#     return tot / cnt
+
+# res = avg()
+
+# with open('result.txt', 'w') as f:
+#     f.write(str(res))
+
+# #10.계산기 만들기
+# class Calculator:
+#     def __init__(self,numlist):
+#         self.numlist=numlist
     
-# res = (avg())
-# with open ('result.txt','w') as f:
-# #  f= open('result.txt','w')
-#     f.write (str(res))
-def avg():
-    tot = 0
-    cnt = 0
+#     def sum(self):
+#         res=0
+#         for i in num:
 
-    with open('sample.txt', 'r') as f:
-        while True:
-            line = f.readline()
-            if not line:
-                break
-            score = int(line.strip())
-            tot += score
-            cnt += 1
+#11. 모듈 사용하기
+# import sys
+# sys.path.append('C:/doit')
+# import mymod
 
-    return tot / cnt
-
-res = avg()
-
-with open('result.txt', 'w') as f:
-    f.write(str(res))
-
-#10.계산기 만들기
-class Calculator:
-    def __init__(self,numlist):
-        self.numlist=numlist
-    
-    def sum(self):
-        res=0
-        for i in num:
-            
+#12.
+#[1,2,3][3] 실행 되고 indexError 발생 ->indexError구문으로 이동
+# -> result +=3 되어 3 -> finally 구문 이동 -> result +=4 -> 7
