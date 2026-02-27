@@ -1,0 +1,14 @@
+class Mul :
+    def __init__(self,m):
+        self.m = m
+
+    def __call__(self,n): # 객체를 함수처럼 호출할 수 있게 해주는 특수 메소드 __call__딥러닝에 자주 쓰임
+        return self.m*n
+    
+if __name__ == "__main__":
+    mul3 = Mul(3)
+    mul5 = Mul(5)
+    
+print(mul3.__call__(10)) # 아래 코드와 같음
+print(mul3(10)) # 위의 코드와 같음
+print(mul5(10))
