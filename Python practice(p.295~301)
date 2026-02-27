@@ -1,0 +1,42 @@
+#3. false ,true
+#4. 
+li =[1,-2,3,-5,8,-3]
+res = list(filter(lambda x:x>0 ,li))
+print(res)
+#7.
+li = [-8,2,7,5,-3,5,0,1]
+a = max(li) + min(li)
+print(a)
+
+#8.
+a = 17/3
+print(round(a))
+
+#11.
+import time
+a = time.strftime('%Y/%m/%d %H:%m:%S',time.localtime(time.time()))
+print(a)
+
+#12.
+import random
+res = []
+while len(res)<6:
+    a = random.randint(1,45)
+    if a not in res :
+        res.append(a)
+print(res)
+
+#17.
+import random
+
+stu = ['김현승','김진호','강춘자','이예준','김현주']
+do = ['청소','빨래','설거지']
+rest = ['휴식']
+
+workers = random.sample(stu, 2)
+
+for name in stu:
+    if name in workers:
+        print(name, random.choice(do))
+    else:
+        print(name, rest[0])
