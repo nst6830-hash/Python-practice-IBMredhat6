@@ -1,0 +1,10 @@
+import json
+
+def loading():
+    try:
+        with open('stu.json','r',encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print('파일 없음')
+
+print(loading())
