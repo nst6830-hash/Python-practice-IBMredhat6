@@ -1,0 +1,18 @@
+import asyncio # 비동기 I/O (비동기함수 코루틴함수)coroutine
+#async/await 구문을 사용하여 동시성 코드 작성 라이브러리
+
+async def show(name,sec):
+    print("start")
+    await asyncio.sleep(sec) # 다른 비동기 작업이 끝날 때 까지 기다림
+    print("final")
+
+async def main():
+    await asyncio.gather( # 두개 작업이 다 완료될 때 까지 기다린다. /show 함수 동시시작
+        show('python',2),
+        show('java',3)
+    )
+# 1. show 함수 동시실행 ->
+# 2. 2초 동안 'python' 작업 완료됨 show('python',2), -> final
+# 3. 3초 동안 'java' 완료됨 show('java',3)
+# 동기식 5초 걸림, 비동기식 3초 걸림 ^ 비동기식
+asyncio.run(main())
