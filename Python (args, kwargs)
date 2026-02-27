@@ -1,0 +1,37 @@
+# * args : tuple 반환 
+
+def func1(*args) :
+    for i in args :
+        print(i)
+
+func1('gildong')
+func1('gildong','tom','juli')
+func1('gildong','tom','juli','jack')
+
+# **kwargs : dict 반환
+def func2(**kewargs):
+    for i in kewargs.keys():
+        print(i,kewargs[i],type(i),kewargs,type(kewargs))
+    
+func2(name1='철수') #name1 철수 <class 'str'> {'name1': '철수'} <class 'dict'>
+#i=name1 kewargs=철수 i의 클래스 str dict형태로 출력 클래스 명시 dict
+func2(name1='철수',name2 = '영희', name3 = '유리')
+func2(name1='훈이',name2 = '맹구')
+
+def func3(arg1,agr2,*agrs,**kwargs):
+    print(arg1,agr2,agrs,kwargs)
+
+func3(10,40,'kim','lee','park',age=10,adr='suwon') 
+#     10 40 ('kim', 'lee', 'park') {'age': 10, 'adr': 'suwon'}
+#      ^그대로 출력    ^ 튜플로(*args)      ^딕셔너리로(**kwargs)
+
+#초기값 설정
+def say(name,man,old=20):
+    print(name)
+    if man:
+        print('남자',old)
+    else :
+        print('여자',old)
+        
+say('juli',True,)
+say('tom',False,10)
