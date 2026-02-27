@@ -1,0 +1,36 @@
+it= [1,2,3,4,5].__iter__()
+# iter로 객체를 얻은 후에 next를 사용해야 한다,.
+print(next(it)) # 1 하나씩 꺼내진다.
+print(it.__next__())
+print(it.__next__())
+print(it.__next__())
+print(it.__next__())
+#print(it.__next__()) 가져올수 있는 값 이상으로 가져올 경우 에러발생 StopIteration
+
+print(("hello").__iter__())
+print(({'a':1,'b':3}).__iter__())
+print(({1,2,3}).__iter__())
+
+class Cnt:
+    def __init__(self,stop):
+        self.current=0
+        self.stop=stop
+
+    def __iter__(self): # iter (obj)-> 이터레이터 객체 만듦
+        return self
+    
+    def __next__(self): # next (obj)-> 변환된 이터레이터 객체에 next() 반복 호출
+        if self.current < self.stop:
+            res = self.current
+            self.current+=1
+            return res
+        else :
+            raise StopIteration # 예외 강제 발생시키기 
+#c=Cnt(5)
+#for 문이 객체를 받을 때 자동으로 __iter__ 호출
+#for 문이 자동으로 __next__ 호출
+for i in Cnt(5):
+    print(i)
+
+# for i in range(3,4):
+#     print(i)
