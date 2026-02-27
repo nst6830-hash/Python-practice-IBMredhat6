@@ -1,3 +1,5 @@
+.py
+
 import json
 
 def loading():
@@ -17,3 +19,18 @@ print(loading())
 add([{"name":"tom","score":100},
  {"name":"tom","score":100}])
 print(loading())
+
+
+---------------------------------------------------------
+stu.json
+
+[
+  {
+    "name": "tom",
+    "score": 100
+  },
+  {
+    "name": "tom",
+    "score": 100
+  }
+]
