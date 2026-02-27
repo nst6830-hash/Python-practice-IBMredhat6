@@ -1,0 +1,21 @@
+# CSV (Comma Seperated Values)
+import csv #csv 모듈 불러오기
+
+with open ('./resource/weather1.csv','r') as f:
+    reader=csv.reader(f) # 파일객체 f를 읽어 csv형식에 맞게 줄 단위로 읽기
+    print(reader) #<_csv.reader object at 0x000002A84EBA6920> 반복 가능한 객체(iterable object)
+
+    for i in reader:
+        print(i) # list 구조로 출력 되고 있음
+
+with open ('./resource/weather1.csv','r') as f:
+    reader = csv.reader(f,delimiter=',') # 구분자를 ,쉼표로 설정해서 읽어오기
+    for i in reader:
+        print(i)
+
+with open ('./resource/weather1.csv','r') as f:
+    reader=csv.DictReader(f) # csv 파일을 dict로 변환하여 읽어오기
+    for i in reader: # 행을 기준으로 dict
+        for x,y in i.items(): # 속성,데이터값이 반복하여
+            print(x,y) # dic 형식으로 읽어와, 'ex) 상순(4월) 13.3' 로 출력됨 
+            # x= 키 y= 밸류 
