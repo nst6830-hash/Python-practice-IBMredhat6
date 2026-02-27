@@ -1,0 +1,29 @@
+# f = open("score.txt",'a')
+def setscore(name,score):
+
+    with open('score.txt','a') as f: 
+        #한글 입력 깨질경우 인코딩 넣기 utf-8
+        f.write(f"{name},{score}\n")
+
+def average():
+    sum=0
+    cnt=0
+    try:
+        with open('score.txt','r') as f:
+            for i in f:
+                i=i.strip()
+                name,score=i.split(",") #, 기준으로 언패킹
+                sum+=int(score)
+                cnt+=1
+        return sum/cnt
+
+    except FileNotFoundError:
+        print('파일이 없습니다.')
+
+
+setscore('kim',40)
+setscore('lee',80)
+setscore('cho',60)
+
+avg = average()
+print(avg)
