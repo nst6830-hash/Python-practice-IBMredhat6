@@ -1,0 +1,100 @@
+li1 = ['1','2','3']
+
+for i in li1 :
+    print(i) # 인덱스 0부터 출력 1 2 3
+
+#for i in collection :
+#   반복할 실행코드
+
+name = ['kim','lee','park','choi']
+for i in name :
+    print(i)
+
+word = "python"
+for i in word : 
+    print(i) # 문자열도 인덱스 기준으로 대입되어 출력된다.
+
+profile = {
+    "name":"hong",
+    "age" : 30
+}
+for i in profile :
+    print(i) # 키 값 출력 name age
+    print(profile[i]) # value 출력 hong 30
+print('=============================')
+for i in profile.values() :
+    print(i)
+
+fruit='PineApple'
+for i in fruit :
+    if i.isupper() : #대문자 확인하는 메소드 
+        print(i)
+    else :
+        print(i.upper()) # 대문자로 변환 하여 출력
+    
+    
+num = [34,62,63,1,35,6,2]
+for i in num :
+    if i == 35:
+        print("35!")
+        break
+    else :
+        print(i)
+print('=============================')
+
+# is : 두 객체가 같은 객체인지 비교하는 연산자(메모리 주소가 같은지)
+# == : 값이 같은지 비교
+# type : 하나의 고정된 타입 객체 반환하는 메소드
+li=["3",1,2,True,4.5]
+for i in li :
+    if type(i) is str :
+        continue # 제외하기
+    print(i,type(i))
+
+#for~else 구문 
+num = [34,62,63,1,35,6,2]
+for i in num :
+    if i == 31:
+        print("35!")
+        break
+else :
+    print("hihi")
+
+fruit2="mango"
+print(reversed(fruit2)) #<reversed object at 0x000001F85E697FA0> 객체 형태 주소값으로 출력됨
+print(list(reversed(fruit2))) #['o', 'g', 'n', 'a', 'm'] 객체 안에 있는 값을 실제로 꺼내 리스트로 만들어줌
+print(tuple(fruit2)) #('m', 'a', 'n', 'g', 'o') #순서 유지 됨
+print(set(fruit2)) #{'o', 'n', 'g', 'a', 'm'} #순서 유지 안됨
+
+#range
+for i1 in range(10): #0~ 10 미만
+    print(i1)
+for i2 in range(1,11):
+    print(i2)
+
+#while 문으로 바꾸기
+i=1
+while(i<10):
+    print(i)
+    i+=1
+print()
+
+for i3 in range(1,11,2): #1부터 11미만까지 1씩 증가
+    print(i3,end=' ') #한줄로 출력하고싶을땐 end 넣기 
+print()
+
+#1~10 까지 합 p.145
+sum1 = 0
+for i in range(1,11):
+    sum1+=i 
+print(sum1) 
+
+#구구단 출력하기
+#for문 중첩
+for i in range(2,10) : #2 ~9 숫자 생성
+    for a in range(1,10): #1~9까지 숫자 생성
+        print("{:5}".format(i*a),end='') #출력 폭을 5칸으로 하고 i*a 줄바꿈없이 출력(end) 기본 오른쪽 정렬
+    print()
+
+
+
